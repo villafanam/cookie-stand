@@ -2,18 +2,64 @@
 
 // ************ GLOBALS ******************
 // HELPFUL FOR YOUR LAB!!
-let hours = ['06am', '07am', '08am','09am','10am','11am','12pm','01pm','02pm','03pm','04pm','05pm','06pm', '07pm'];
+let hours = ['6:00am', '7:00am', '8:00am','9:00am','10:00am','11:00am','12:00pm','1:00pm','2:00pm','3:00pm','4:00pm','5:00pm','6:00pm', '7:00pm'];
+
+let totalDT = 0;
+let colTotal = new Array(hours.length).fill(0);
 
 // ************ DOM WINDOWS **************
 
 // STEP 1: WINDOW INTO THE DOM
 let citySection = document.getElementById('city-sales');
+let tableElem = document.getElementById('cookie-stand');
 // console.dir(citySection);
 
 // *********** HELPER FUNCTIONS / UTILITES ************
 function randomNum(min,max){
   // got from MDN docs
   return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+function headRwTable(){
+  // STEP 2: Create an elements
+  let row0 = document.createElement('tr');
+  tableElem.appendChild(row0);
+
+  let th0Elem = document.createElement('th');
+  //th0Elem.textContent = 'START';
+  row0.appendChild(th0Elem);
+
+  for(let i = 0; i < hours.length; i++)
+  {
+    let thElem = document.createElement('th');
+    thElem.textContent = hours[i];
+    row0.appendChild(thElem);
+  }
+
+  let th20Elem = document.createElement('th');
+  th20Elem.textContent = 'Daily Locaton Total';
+  row0.appendChild(th20Elem);
+}
+
+function footRwTable()
+{
+  let row = document.createElement('tr');
+  tableElem.appendChild(row);
+
+  let td0Elem = document.createElement('th');
+  td0Elem.textContent = 'Totals';
+  row.appendChild(td0Elem);
+
+  for(let i = 0; i < hours.length; i++)
+  {
+    let tdElem = document.createElement('th');
+    tdElem.textContent = colTotal[i];
+    row.appendChild(tdElem);
+  }
+
+  let td20Elem = document.createElement('th');
+  td20Elem.textContent = totalDT;
+  row.appendChild(td20Elem);
 }
 
 // ************** CONSTRUCTOR FUNCTION *************
@@ -45,29 +91,29 @@ cookieStand.prototype.salesPerHr = function(){
   }
 };
 
- // ****** DOM MANIPULATION ******
+ //DOM MANIPULATION ******
 cookieStand.prototype.render = function(){
  
     // STEP 2: Create an elements
-    let secElem = document.createElement('section');
-    citySection.appendChild(secElem);
+    let row1 = document.createElement('tr');
+    tableElem.appendChild(row1);
 
-    let h2Elem = document.createElement('h2');
-    h2Elem.innerText = this.name;
-    secElem.appendChild(h2Elem);
+    let td0Elem = document.createElement('th');
+    td0Elem.textContent = this.name;
+    row1.appendChild(td0Elem);
 
-    let ulElem = document.createElement('ul');
-    secElem.appendChild(ulElem);
-    
-    for(let i = 0; i < this.cookiesSales.length; i++){
-      let liElem = document.createElement('li');
-      liElem.textContent = `${hours[i]}: ${this.cookiesSales[i]} cookies`;
-      ulElem.appendChild(liElem);
+    for(let i = 0; i < this.cookiesSales.length; i++)
+    {
+      let tdElem = document.createElement('td');
+      tdElem.textContent = this.cookiesSales[i];
+      colTotal[i] += this.cookiesSales[i];
+      row1.appendChild(tdElem);
     }
 
-    let liElem = document.createElement('li');
-    liElem.textContent = `Total: ${this.total}`;
-    ulElem.appendChild(liElem);
+    let td20Elem = document.createElement('td');
+    td20Elem.textContent = this.total;
+    totalDT += this.total;
+    row1.appendChild(td20Elem);
 };
 
 cookieStand.prototype.run = function(){
@@ -88,7 +134,11 @@ let lima = new cookieStand('Lima', 2, 16, 4.6);
 let citStands = [seattle, tokyo, dubai, paris, lima];
 
 //FUNCTION CALLS
+headRwTable();
+
 for(let i = 0; i < citStands.length; i++)
 {
   citStands[i].run();
 }
+
+footRwTable();
