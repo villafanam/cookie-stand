@@ -24,6 +24,7 @@ let seattle = {
   avgCookieSale: 6.3,
   cookiesSales: [],
   custArr: [],
+  total: 0,
   custPHr: function(){ //customers per hour
     for(let i = 0; i < hours.length; i++)
     {
@@ -33,7 +34,10 @@ let seattle = {
   salesPH: function(){ //sales per hour
     for(let i = 0; i < this.custArr.length; i++)
     {
-      this.cookiesSales.push(Math.floor(this.custArr[i] * this.avgCookieSale));
+      //this.cookiesSales.push(Math.floor(this.custArr[i] * this.avgCookieSale));
+      let cookiesBought = Math.floor(this.custArr[i] * this.avgCookieSale);
+      this.cookiesSales.push(cookiesBought);
+      this.total += cookiesBought;
     }
   },
   render: function(){
@@ -54,6 +58,10 @@ let seattle = {
       liElem.textContent = `${hours[i]}: ${this.cookiesSales[i]} cookies`;
       ulElem.appendChild(liElem);
     }
+
+    let liElem = document.createElement('li');
+    liElem.textContent = `Total: ${this.total}`;
+    ulElem.appendChild(liElem);
   },
   // render: function(){
   //   // ****** DOM MANIPULATION ******
@@ -85,6 +93,7 @@ let tokyo = {
   avgCookieSale: 1.2,
   cookiesSales: [],
   custArr: [],
+  total: 0,
   custPHr: function(){ //customers per hour
     for(let i = 0; i < hours.length; i++)
     {
@@ -94,7 +103,10 @@ let tokyo = {
   salesPH: function(){ //sales per hour
     for(let i = 0; i < this.custArr.length; i++)
     {
-      this.cookiesSales.push(Math.floor(this.custArr[i] * this.avgCookieSale));
+      //this.cookiesSales.push(Math.floor(this.custArr[i] * this.avgCookieSale));
+      let cookiesBought = Math.floor(this.custArr[i] * this.avgCookieSale);
+      this.cookiesSales.push(cookiesBought);
+      this.total += cookiesBought;
     }
   },
   render: function(){
@@ -115,6 +127,10 @@ let tokyo = {
       liElem.textContent = `${hours[i]}: ${this.cookiesSales[i]} cookies`;
       ulElem.appendChild(liElem);
     }
+
+    let liElem = document.createElement('li');
+    liElem.textContent = `Total: ${this.total}`;
+    ulElem.appendChild(liElem);
   },
   run: function(){
     this.custPHr();
@@ -130,6 +146,7 @@ let dubai = {
   avgCookieSale: 2.3,
   cookiesSales: [],
   custArr: [],
+  total: 0,
   custPHr: function(){ //customers per hour
     for(let i = 0; i < hours.length; i++)
     {
@@ -139,7 +156,10 @@ let dubai = {
   salesPH: function(){ //sales per hour
     for(let i = 0; i < this.custArr.length; i++)
     {
-      this.cookiesSales.push(Math.floor(this.custArr[i] * this.avgCookieSale));
+      //this.cookiesSales.push(Math.floor(this.custArr[i] * this.avgCookieSale));
+      let cookiesBought = Math.floor(this.custArr[i] * this.avgCookieSale);
+      this.cookiesSales.push(cookiesBought);
+      this.total += cookiesBought;
     }
   },
   render: function(){
@@ -160,6 +180,10 @@ let dubai = {
       liElem.textContent = `${hours[i]}: ${this.cookiesSales[i]} cookies`;
       ulElem.appendChild(liElem);
     }
+
+    let liElem = document.createElement('li');
+    liElem.textContent = `Total: ${this.total}`;
+    ulElem.appendChild(liElem);
   },
   run: function(){
     this.custPHr();
@@ -175,6 +199,7 @@ let paris = {
   avgCookieSale: 2.3,
   cookiesSales: [],
   custArr: [],
+  total: 0,
   custPHr: function(){ //customers per hour
     for(let i = 0; i < hours.length; i++)
     {
@@ -184,7 +209,10 @@ let paris = {
   salesPH: function(){ //sales per hour
     for(let i = 0; i < this.custArr.length; i++)
     {
-      this.cookiesSales.push(Math.floor(this.custArr[i] * this.avgCookieSale));
+      //this.cookiesSales.push(Math.floor(this.custArr[i] * this.avgCookieSale));
+      let cookiesBought = Math.floor(this.custArr[i] * this.avgCookieSale);
+      this.cookiesSales.push(cookiesBought);
+      this.total += cookiesBought;
     }
   },
   render: function(){
@@ -205,6 +233,10 @@ let paris = {
       liElem.textContent = `${hours[i]}: ${this.cookiesSales[i]} cookies`;
       ulElem.appendChild(liElem);
     }
+
+    let liElem = document.createElement('li');
+    liElem.textContent = `Total: ${this.total}`;
+    ulElem.appendChild(liElem);
   },
   run: function(){
     this.custPHr();
@@ -220,6 +252,7 @@ let lima = {
   avgCookieSale: 4.6,
   cookiesSales: [],
   custArr: [],
+  total: 0,
   custPHr: function(){ //customers per hour
     for(let i = 0; i < hours.length; i++)
     {
@@ -229,7 +262,10 @@ let lima = {
   salesPH: function(){ //sales per hour
     for(let i = 0; i < this.custArr.length; i++)
     {
-      this.cookiesSales.push(Math.floor(this.custArr[i] * this.avgCookieSale));
+      //this.cookiesSales.push(Math.floor(this.custArr[i] * this.avgCookieSale));
+      let cookiesBought = Math.floor(this.custArr[i] * this.avgCookieSale);
+      this.cookiesSales.push(cookiesBought);
+      this.total += cookiesBought;
     }
   },
   render: function(){
@@ -250,6 +286,10 @@ let lima = {
       liElem.textContent = `${hours[i]}: ${this.cookiesSales[i]} cookies`;
       ulElem.appendChild(liElem);
     }
+
+    let liElem = document.createElement('li');
+    liElem.textContent = `Total: ${this.total}`;
+    ulElem.appendChild(liElem);
   },
   run: function(){
     this.custPHr();
