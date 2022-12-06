@@ -50,7 +50,7 @@ ul {
   font-size: 1.75em;
   font-family: 'Varela Round', sans-serif;
   /* list-style-type: ; */
-  list-style-image: url('img/cookie.png');
+  list-style-image: url('../img/cookie.png');
   list-style-position: inside;
   margin-bottom: 15px;
 }
@@ -67,7 +67,7 @@ img {
 }
 
 /* table * {
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Varela Round', sans-serif;
   background-color: #797d80;
   border: 1px double #020005;
   padding: 8px;
