@@ -39,12 +39,15 @@ let seattle = {
   render: function(){
     // ****** DOM MANIPULATION ******
     // STEP 2: Create an elements
+    let secElem = document.createElement('section');
+    citySection.appendChild(secElem);
+
     let h2Elem = document.createElement('h2');
     h2Elem.innerText = this.name;
-    citySection.appendChild(h2Elem);
+    secElem.appendChild(h2Elem);
 
     let ulElem = document.createElement('ul');
-    citySection.appendChild(ulElem);
+    secElem.appendChild(ulElem);
     
     for(let i = 0; i < this.cookiesSales.length; i++){
       let liElem = document.createElement('li');
@@ -52,6 +55,22 @@ let seattle = {
       ulElem.appendChild(liElem);
     }
   },
+  // render: function(){
+  //   // ****** DOM MANIPULATION ******
+  //   // STEP 2: Create an elements
+  //   let h2Elem = document.createElement('h2');
+  //   h2Elem.innerText = this.name;
+  //   citySection.appendChild(h2Elem);
+
+  //   let ulElem = document.createElement('ul');
+  //   citySection.appendChild(ulElem);
+    
+  //   for(let i = 0; i < this.cookiesSales.length; i++){
+  //     let liElem = document.createElement('li');
+  //     liElem.textContent = `${hours[i]}: ${this.cookiesSales[i]} cookies`;
+  //     ulElem.appendChild(liElem);
+  //   }
+  // },
   run: function(){
     this.custPHr();
     this.salesPH();
@@ -81,12 +100,15 @@ let tokyo = {
   render: function(){
     // ****** DOM MANIPULATION ******
     // STEP 2: Create an elements
+    let secElem = document.createElement('section');
+    citySection.appendChild(secElem);
+
     let h2Elem = document.createElement('h2');
     h2Elem.innerText = this.name;
-    citySection.appendChild(h2Elem);
+    secElem.appendChild(h2Elem);
 
     let ulElem = document.createElement('ul');
-    citySection.appendChild(ulElem);
+    secElem.appendChild(ulElem);
     
     for(let i = 0; i < this.cookiesSales.length; i++){
       let liElem = document.createElement('li');
@@ -123,12 +145,15 @@ let dubai = {
   render: function(){
     // ****** DOM MANIPULATION ******
     // STEP 2: Create an elements
+    let secElem = document.createElement('section');
+    citySection.appendChild(secElem);
+
     let h2Elem = document.createElement('h2');
     h2Elem.innerText = this.name;
-    citySection.appendChild(h2Elem);
+    secElem.appendChild(h2Elem);
 
     let ulElem = document.createElement('ul');
-    citySection.appendChild(ulElem);
+    secElem.appendChild(ulElem);
     
     for(let i = 0; i < this.cookiesSales.length; i++){
       let liElem = document.createElement('li');
@@ -165,12 +190,15 @@ let paris = {
   render: function(){
     // ****** DOM MANIPULATION ******
     // STEP 2: Create an elements
+    let secElem = document.createElement('section');
+    citySection.appendChild(secElem);
+
     let h2Elem = document.createElement('h2');
     h2Elem.innerText = this.name;
-    citySection.appendChild(h2Elem);
+    secElem.appendChild(h2Elem);
 
     let ulElem = document.createElement('ul');
-    citySection.appendChild(ulElem);
+    secElem.appendChild(ulElem);
     
     for(let i = 0; i < this.cookiesSales.length; i++){
       let liElem = document.createElement('li');
@@ -207,12 +235,15 @@ let lima = {
   render: function(){
     // ****** DOM MANIPULATION ******
     // STEP 2: Create an elements
+    let secElem = document.createElement('section');
+    citySection.appendChild(secElem);
+
     let h2Elem = document.createElement('h2');
     h2Elem.innerText = this.name;
-    citySection.appendChild(h2Elem);
+    secElem.appendChild(h2Elem);
 
     let ulElem = document.createElement('ul');
-    citySection.appendChild(ulElem);
+    secElem.appendChild(ulElem);
     
     for(let i = 0; i < this.cookiesSales.length; i++){
       let liElem = document.createElement('li');

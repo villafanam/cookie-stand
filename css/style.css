@@ -8,7 +8,7 @@ header {
 }
 
 h1 {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Varela Round', sans-serif;
   background-color: #797d80;
   font-size: 3em;
   text-align: center;
@@ -16,33 +16,47 @@ h1 {
   margin-bottom: 50px;
 }
 
-/* main>h2 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.75em;
-  width: max-content;
-  padding: 30px;
-  margin: auto;
-  margin-bottom: 10px;
+/* h2
+{
+  text-align: center;
+  width:auto;
 } */
 
 section {
-  width: 75%;
+  width: 100%;
   margin: auto;
   display: flex;
+  flex-direction: row;
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
 
+#city-sales section{
+  
+  width:fit-content;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+#city-sales section h2{
+  
+  margin: auto;
+}
+
 ul {
   font-size: 1.75em;
-  font-family: 'Archivo', sans-serif;
-  list-style-type: "🐾   ";
+  font-family: 'Varela Round', sans-serif;
+  /* list-style-type: ; */
+  list-style-image: url('/img/cookie.png');
   list-style-position: inside;
   margin-bottom: 15px;
 }
 
 li {
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Varela Round', sans-serif;
   font-size: .75em;
   margin-top: 15px;
 
@@ -69,7 +83,7 @@ td {
 
 
 footer {
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Varela Round', sans-serif;
   font-size: 1.5em;
   padding-top: 15px;
   text-align: right;
