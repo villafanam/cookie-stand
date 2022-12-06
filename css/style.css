@@ -50,7 +50,7 @@ ul {
   font-size: 1.75em;
   font-family: 'Varela Round', sans-serif;
   /* list-style-type: ; */
-  list-style-image: url('/img/cookie.png');
+  list-style-image: url('img/cookie.png');
   list-style-position: inside;
   margin-bottom: 15px;
 }
