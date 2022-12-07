@@ -15,18 +15,27 @@ let tableElem = document.getElementById('cookie-stand');
 // console.dir(citySection);
 
 // *********** HELPER FUNCTIONS / UTILITES ************
+/**
+ * 
+ * @param {number} min minimum number of the range
+ * @param {number} max maximum number of the range
+ * @returns random number between min and max
+ */
 function randomNum(min,max){
   // got from MDN docs
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+/**
+ * renders the header of the table
+ */
 function headRwTable(){
   // STEP 2: Create an elements
   let row0 = document.createElement('tr');
   tableElem.appendChild(row0);
 
   let th0Elem = document.createElement('th');
-  //th0Elem.textContent = 'START';
+  th0Elem.textContent = 'Store';
   row0.appendChild(th0Elem);
 
   for(let i = 0; i < hours.length; i++)
@@ -41,6 +50,10 @@ function headRwTable(){
   row0.appendChild(th20Elem);
 }
 
+/**
+ * renders the footer of the table and 
+ * displays total of each column
+ */
 function footRwTable()
 {
   let row = document.createElement('tr');
@@ -63,6 +76,13 @@ function footRwTable()
 }
 
 // ************** CONSTRUCTOR FUNCTION *************
+/**
+ * 
+ * @param {string} name name of city
+ * @param {number} minCust minimum customer
+ * @param {number} maxCust maximum customer
+ * @param {number} avgCSales average cookie sales
+ */
 function cookieStand(name, minCust, maxCust, avgCSales)
 {
   this.name = name;
@@ -75,6 +95,9 @@ function cookieStand(name, minCust, maxCust, avgCSales)
 }
 
 // ******* PROTOTYPE METHODS *********
+/**
+ * fill array with random number between minCust and maxCust
+ */
 cookieStand.prototype.custPerHr = function(){
   for(let i = 0; i < hours.length; i++)
     {
@@ -82,6 +105,9 @@ cookieStand.prototype.custPerHr = function(){
     }
 };
 
+/**
+ * calculates the cookie sold 
+ */
 cookieStand.prototype.salesPerHr = function(){
   for(let i = 0; i < this.custArr.length; i++)
   {
@@ -92,6 +118,7 @@ cookieStand.prototype.salesPerHr = function(){
 };
 
  //DOM MANIPULATION ******
+ //render table data
 cookieStand.prototype.render = function(){
  
     // STEP 2: Create an elements
@@ -116,6 +143,7 @@ cookieStand.prototype.render = function(){
     row1.appendChild(td20Elem);
 };
 
+//calls required functions
 cookieStand.prototype.run = function(){
   this.custPerHr();
   this.salesPerHr();
