@@ -3,17 +3,19 @@ body {
 }
 
 header {
-  background-color: #797d80;
-  height: 100px;
+  background-color: rgb(187, 103, 103);
+  height: auto;
+  
 }
 
 h1 {
   font-family: 'Varela Round', sans-serif;
-  background-color: #797d80;
-  font-size: 3em;
+  font-size: 5em;
   text-align: center;
-  padding-top: 20px;
-  margin-bottom: 50px;
+  padding-top: 10px;
+  margin-bottom: 30px;
+  -webkit-text-stroke: 3px maroon;
+  -webkit-text-fill-color: white;
 }
 
 h2
@@ -24,6 +26,47 @@ h2
   margin-left: 0;
   margin-right: 0;
   font-weight: bold;
+}
+
+h4 {
+  text-decoration-line: underline;
+  text-align: left;
+  padding: 10px;
+}
+
+nav {
+  background-color: maroon;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center; 
+  justify-content: space-evenly;
+  list-style: none;
+}
+
+/* nav ul li {
+  width: 150px;
+  height: 47px;
+} */
+
+nav ul li a {
+  /* width: 144px; */
+  color: #111;
+  border:5px inset #0C8F0A;
+  padding: 3px 6px;
+  border-radius: 10px;
+  background-color: #47FF45;
+  text-decoration: none;
+  font-size: 1.30em;
+  font-weight: bold;
+  font-family: 'Varela Round', sans-serif;
+  
+}
+
+nav ul li img {
+  /* background-color: aqua; */
 }
 
 section {
@@ -50,24 +93,71 @@ section {
   margin: auto;
 }
 
-ul {
-  font-size: 1.75em;
-  font-family: 'Varela Round', sans-serif;
-  list-style-image: url('../img/cookie.png');
-  list-style-position: inside;
-  margin-bottom: 15px;
+main {
+  width: 960px;
+  margin: auto;
 }
 
-li {
-  font-family: 'Varela Round', sans-serif;
-  font-size: .75em;
-  margin-top: 15px;
-
+main img {
+  padding-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-img {
-  margin-bottom: 30px;
+main ul {
+  width: 960px;
+  padding-top: 0px;
+  display: flex;
+  justify-content: space-between;
 }
+
+.intro section {
+  display: flex; 
+  flex-direction: row; 
+  justify-content: space-evenly;
+  align-content: center; 
+  padding-bottom: 30px;
+  flex-wrap: nowrap;
+}
+
+.intro section img {
+  width: 50%;
+}
+
+.intro section div {
+  padding: 30px 0px 0px 30px;
+}
+
+.intro section div h2 {
+  padding-bottom: 15px;
+  font-size: 1.5em;
+}
+
+.intro section div p{
+  height: 300px;
+  overflow: auto;
+  padding-bottom: 15px;
+}
+
+button{
+  margin-top: 30px;
+  transition: 1000ms;
+  width: 180px;
+  height: 35px;
+  border-radius: 10px;
+  background-color: black;
+  color: aliceblue;
+  
+}
+
+button:hover{
+  background-color: greenyellow;
+  color: maroon;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+
 
 table * {
   font-family: 'Varela Round', sans-serif;
@@ -86,12 +176,26 @@ td {
 
 
 footer {
+  /* position: fixed; */
+  /* height: 100px; */
   font-family: 'Varela Round', sans-serif;
-  font-size: 1.5em;
+  font-size: 1em;
+  text-align: right; 
   padding-top: 15px;
-  text-align: right;
   padding-right: 10px;
-  height: 100px;
   background-color: #797d80;
   margin-top: 30px;
+}
+
+footer ul {
+  display: flex; 
+  flex-direction: row; 
+  justify-content: space-evenly;
+  align-content: center; 
+  flex-wrap: nowrap;
+}
+
+footer ul li {
+  text-align: left;
+  padding-left: 10px;
 }
