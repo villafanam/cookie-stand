@@ -198,4 +198,5 @@ footer ul {
 footer ul li {
   text-align: left;
   padding-left: 10px;
+  flex: 1;
 }

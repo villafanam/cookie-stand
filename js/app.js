@@ -12,6 +12,9 @@ let colTotal = new Array(hours.length).fill(0);
 // STEP 1: WINDOW INTO THE DOM
 let citySection = document.getElementById('city-sales');
 let tableElem = document.getElementById('cookie-stand');
+
+// ******* GRAB THE ELEMENT TO LISTEN TO ******
+let myForm = document.getElementById('city-form');
 // console.dir(citySection);
 
 // *********** HELPER FUNCTIONS / UTILITES ************
@@ -75,13 +78,41 @@ function footRwTable()
   row.appendChild(td20Elem);
 }
 
+//  *******DEFINE OUR EVENT HANDLER ********
+function handleSubmit(event)
+{
+  event.preventDefault();
+ 
+  // TODO: GRAB THE INFO COMING OUT OF THE FORM
+  let citName = event.target.cityName.value;
+  let minCus = parseInt(event.target.minCus.value);
+  let maxCus = parseInt(event.target.maxCus.value);
+  let avgCSold = parseFloat(event.target.avgCSale.value);
+
+  // TODO: CREATE A NEW cookie stand OBJECT USING MY CONSTRUCTOR
+  let cStore = new cookieStand(citName, minCus, maxCus, avgCSold);
+  console.log(cStore);
+  // TODO: CALL NECESSARY METHODS TO HAVE THE NEW OBJECT DISPLAYED
+
+  //delete last row of tablbe
+  document.getElementById('cookie-stand').deleteRow((document.getElementById('cookie-stand').rows.length)-1);
+
+  //render table with new row and total
+  cStore.run();
+  footRwTable();
+
+  //clear form
+  myForm.reset();
+}
+
 // ************** CONSTRUCTOR FUNCTION *************
 /**
  * 
  * @param {string} name name of city
  * @param {number} minCust minimum customer
  * @param {number} maxCust maximum customer
- * @param {number} avgCSales average cookie sales
+ * @param {Float} avgCSales average cookie sales
+ * 
  */
 function cookieStand(name, minCust, maxCust, avgCSales)
 {
@@ -163,10 +194,11 @@ let citStands = [seattle, tokyo, dubai, paris, lima];
 
 //FUNCTION CALLS
 headRwTable();
-
 for(let i = 0; i < citStands.length; i++)
 {
   citStands[i].run();
 }
-
 footRwTable();
+
+// ***** ADD MY EVENT LISTENER ******
+myForm.addEventListener('submit', handleSubmit);
