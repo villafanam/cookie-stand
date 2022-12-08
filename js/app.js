@@ -84,14 +84,15 @@ function handleSubmit(event)
   event.preventDefault();
  
   // TODO: GRAB THE INFO COMING OUT OF THE FORM
-  let citName = event.target.cityName.value;
+  let citName = parseInt(event.target.cityName.value);
   let minCus = parseInt(event.target.minCus.value);
   let maxCus = parseInt(event.target.maxCus.value);
   let avgCSold = parseFloat(event.target.avgCSale.value);
 
   // TODO: CREATE A NEW cookie stand OBJECT USING MY CONSTRUCTOR
   let cStore = new cookieStand(citName, minCus, maxCus, avgCSold);
-  console.log(cStore);
+  //console.log(cStore);
+  //console.log(typeof avgCSold );
   // TODO: CALL NECESSARY METHODS TO HAVE THE NEW OBJECT DISPLAYED
 
   //delete last row of tablbe
@@ -199,6 +200,8 @@ for(let i = 0; i < citStands.length; i++)
   citStands[i].run();
 }
 footRwTable();
+//document.getElementById('cookie-stand').row[1].cell[0].innerHTML;
+//alert(tableElem.rows[1].cells[0].innerHTML);
 
 // ***** ADD MY EVENT LISTENER ******
 myForm.addEventListener('submit', handleSubmit);
