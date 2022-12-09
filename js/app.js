@@ -10,11 +10,12 @@ let colTotal = new Array(hours.length).fill(0);
 // ************ DOM WINDOWS **************
 
 // STEP 1: WINDOW INTO THE DOM
-let citySection = document.getElementById('city-sales');
+//let citySection = document.getElementById('city-sales');
 let tableElem = document.getElementById('cookie-stand');
 
 // ******* GRAB THE ELEMENT TO LISTEN TO ******
 let myForm = document.getElementById('city-form');
+let myInput = document.getElementById('cityName');
 // console.dir(citySection);
 
 // *********** HELPER FUNCTIONS / UTILITES ************
@@ -84,7 +85,7 @@ function handleSubmit(event)
   event.preventDefault();
  
   // TODO: GRAB THE INFO COMING OUT OF THE FORM
-  let citName = parseInt(event.target.cityName.value);
+  let citName = event.target.cityName.value;
   let minCus = parseInt(event.target.minCus.value);
   let maxCus = parseInt(event.target.maxCus.value);
   let avgCSold = parseFloat(event.target.avgCSale.value);
@@ -104,6 +105,26 @@ function handleSubmit(event)
 
   //clear form
   myForm.reset();
+  myInput.placeholder = 'Ex. Seattle';
+}
+
+function handleInput(event)
+{
+  let inputData = event.target.value;
+  console.log(inputData);
+  //let inputData = myInput.value;
+  
+  for(let i = 0; i < document.getElementById('cookie-stand').rows.length; i++)
+  {
+    let city = document.getElementById('cookie-stand').rows[i].cells[0].innerHTML;
+    if(inputData.toLowerCase() === city.toLowerCase())
+    {
+      myInput.value = '';
+      myInput.placeholder = 'Invaild name...try again!!';
+    }
+  }
+
+  
 }
 
 // ************** CONSTRUCTOR FUNCTION *************
@@ -200,8 +221,7 @@ for(let i = 0; i < citStands.length; i++)
   citStands[i].run();
 }
 footRwTable();
-//document.getElementById('cookie-stand').row[1].cell[0].innerHTML;
-//alert(tableElem.rows[1].cells[0].innerHTML);
 
 // ***** ADD MY EVENT LISTENER ******
 myForm.addEventListener('submit', handleSubmit);
+myInput.addEventListener('input', handleInput);
